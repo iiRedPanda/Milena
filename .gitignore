@@ -1,0 +1,6 @@
+.env
+memory.json
+bot.log
+gemini_errors.log
+node_modules/
+.qodo
