@@ -1,5 +1,4 @@
 const { Client, GatewayIntentBits } = require('discord.js');
-const { CHANNEL_BEHAVIOR } = require('./constants');
 
 const client = new Client({
     intents: [
@@ -9,4 +8,4 @@ const client = new Client({
     ],
 });
 
-module.exports = { client, CHANNEL_BEHAVIOR };
+module.exports = { client };

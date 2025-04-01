@@ -1,0 +1,1 @@
+This project uses `src/index.js` as the entry point. Do not create or add an `index.js` file in the main directory.
