@@ -17,7 +17,7 @@ export async function loadEvents(client) {
                 try {
                     await event.default.execute(...args, client);
                 } catch (error) {
-                    // Log errors if needed
+                    logger.error(`Error in event ${event.default.name}:`, { message: error.message, stack: error.stack });
                 }
             });
         }
