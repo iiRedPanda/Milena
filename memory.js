@@ -1,6 +1,7 @@
 const fs = require('fs').promises; // Use async file operations
 const { Mutex } = require('async-mutex');
 import { logInfo, logWarn, logError, logDebug } from './src/logger.js'; // Use ES module import for logger
+import { globalMemoryPruneInterval } from './src/utils.js'; // Import global memory pruning interval
 
 /**
  * A class to manage hybrid memory for storing channel-specific data.
@@ -88,17 +89,20 @@ class HybridMemory {
      * Prune messages older than the retention period from memory.
      */
     async pruneOld() {
-        const cutoff = new Date(Date.now() - 60 * 60 * 1000); // 60 minutes ago
+        const now = Date.now();
+        const cutoff = now - globalMemoryPruneInterval * 60 * 60 * 1000; // Convert hours to milliseconds
+
         for (const channelId in this.data.channels) {
+            const initialCount = this.data.channels[channelId].length;
             this.data.channels[channelId] = this.data.channels[channelId].filter(
                 msg => new Date(msg.timestamp) >= cutoff
             );
+            const prunedCount = initialCount - this.data.channels[channelId].length;
+            logDebug(`Pruned ${prunedCount} messages from channel ${channelId}.`);
         }
-        logDebug('Old messages pruned.');
-        // Save only if changes were made
-        if (Object.keys(this.data.channels).length > 0) {
-            await this.save();
-        }
+
+        logDebug('Old messages pruned globally.');
+        await this.save();
     }
 
     /**

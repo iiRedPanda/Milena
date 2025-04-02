@@ -1,4 +1,4 @@
-import { saveConfigurations, STRINGS } from '../utils.js';
+import { saveConfigurations, STRINGS, logInfo } from '../utils.js';
 
 export default {
     name: 'setup',
@@ -20,6 +20,7 @@ export default {
             return;
         }
         const id = mention.id;
+        logInfo(`Setup command executed by ${message.author.tag}: ${subCommand} ${mention.id}`);
         const actions = {
             allowChannel: () => {
                 if (!config.allowedChannels.includes(id)) {

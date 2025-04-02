@@ -1,5 +1,10 @@
 import { SlashCommandBuilder } from 'discord.js';
 import { summarizeMessages } from '../utils.js';
+import { fetchGeminiResponse } from '../ai.js';
+
+async function fallbackSummarization(messages) {
+    return messages.map(msg => msg.content).join('\n').slice(0, 2000); // Simple fallback
+}
 
 export default {
     data: new SlashCommandBuilder()
@@ -29,33 +34,40 @@ export default {
         const method = interaction.options.getString('method');
         const channelId = interaction.channel.id;
 
-        if (method === 'by_ids') {
-            const startMessageId = interaction.options.getString('start_message_id');
-            const endMessageId = interaction.options.getString('end_message_id');
+        try {
+            let summary;
+            if (method === 'by_ids') {
+                const startMessageId = interaction.options.getString('start_message_id');
+                const endMessageId = interaction.options.getString('end_message_id');
+                const messages = await interaction.channel.messages.fetch({ after: startMessageId, before: endMessageId });
 
-            if (!startMessageId || !endMessageId) {
-                await interaction.reply({
-                    content: 'You must provide both a starting and ending message ID to summarize by IDs.',
-                    ephemeral: true,
-                });
-                return;
+                if (!messages.size) {
+                    await interaction.reply({
+                        content: 'No messages found to summarize.',
+                        ephemeral: true,
+                    });
+                    return;
+                }
+
+                summary = await fetchGeminiResponse(messages.map(msg => msg.content).join('\n'));
+            } else if (method === 'from_last') {
+                const messages = await interaction.channel.messages.fetch({ limit: 50 });
+
+                if (!messages.size) {
+                    await interaction.reply({
+                        content: 'No messages found to summarize.',
+                        ephemeral: true,
+                    });
+                    return;
+                }
+
+                summary = await fetchGeminiResponse(messages.map(msg => msg.content).join('\n'));
             }
 
-            const summary = await summarizeMessages(channelId, startMessageId, endMessageId);
             await interaction.reply(`Here is the summary:\n\n${summary}`);
-        } else if (method === 'from_last') {
-            const lastMessageId = interaction.user.lastMessageId;
-
-            if (!lastMessageId) {
-                await interaction.reply({
-                    content: 'I could not find your last message in this channel.',
-                    ephemeral: true,
-                });
-                return;
-            }
-
-            const summary = await summarizeMessages(channelId, lastMessageId, null);
-            await interaction.reply(`Here is the summary from your last message:\n\n${summary}`);
+        } catch (error) {
+            const fallbackSummary = await fallbackSummarization(messages);
+            await interaction.reply(`Gemini API failed. Fallback summary:\n\n${fallbackSummary}`);
         }
     },
 };

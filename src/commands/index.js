@@ -26,4 +26,8 @@ export async function loadCommands(client) {
             }
         }
     }
+
+    if (client.commands.size === 0) {
+        throw new Error('No valid commands were loaded. Stopping the bot.');
+    }
 }

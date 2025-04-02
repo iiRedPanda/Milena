@@ -16,8 +16,6 @@ const client = new Client({
 });
 
 (async () => {
-    let errorsOccurred = false;
-
     try {
         // Load commands
         const commands = [];

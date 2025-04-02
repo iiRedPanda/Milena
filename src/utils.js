@@ -10,18 +10,20 @@ export const STRINGS = {
     HELP_MESSAGE: `
  **Milena Bot Commands:**
  - Mention the bot or reply to its messages to interact.
- - Use \`!clear\` to clear the memory for the current channel.
- - Use \`!help\` to display this help message.
- - Use \`!status\` to view bot status and configuration.
+ - Use \`/clearmemory\` to clear the memory for the current channel.
+ - Use \`/memoryprune\` to configure memory pruning intervals globally.
+ - Use \`/help\` to display this help message.
+ - Use \`/status\` to view bot status and configuration.
  `,
 };
 
-export let memory = {}; // Export memory for conversation history
+export let memory = {}; // Export memory for conversation history per channel
 export let configurations = {}; // Export configurations for server-specific settings
+export let globalMemoryPruneInterval = 24; // Default memory pruning interval in hours
 
 const logsBaseDir = path.resolve('logs');
 const jsonLogsDir = path.join(logsBaseDir, 'json');
-const logRetentionDays = 14; // Retain log files for 14 days
+const logRetentionDays = 7; // Retain log files for 7 days
 
 /**
  * Save memory to a JSON file.
@@ -69,20 +71,22 @@ export async function cleanLogs() {
         logInfo('Starting log cleanup process...');
 
         // Remove old log files
-        const logDirs = ['general', 'errors', 'debug'];
+        const logDirs = ['general', 'errors', 'debug', 'info', 'startup', 'runtime'];
         const now = Date.now();
 
         for (const dir of logDirs) {
             const logDirPath = path.join(logsBaseDir, dir);
             const files = await fs.readdir(logDirPath).catch(() => []);
+            let deletedFilesCount = 0;
             for (const file of files) {
                 const filePath = path.join(logDirPath, file);
                 const stats = await fs.stat(filePath).catch(() => null);
                 if (stats && now - stats.mtimeMs > logRetentionDays * 24 * 60 * 60 * 1000) {
                     await fs.unlink(filePath);
-                    logInfo(`Deleted old log file: ${filePath}`);
+                    deletedFilesCount++;
                 }
             }
+            logInfo(`Deleted ${deletedFilesCount} old log files from ${dir}.`);
         }
 
         // Remove unnecessary JSON files
@@ -99,5 +103,24 @@ export async function cleanLogs() {
         logInfo('Log cleanup process completed successfully.');
     } catch (error) {
         logError('Error during log cleanup process.', { error });
+    }
+}
+
+/**
+ * Prune old memory globally based on the global pruning interval.
+ */
+export async function pruneMemory() {
+    try {
+        const now = Date.now();
+        const cutoff = now - globalMemoryPruneInterval * 60 * 60 * 1000; // Convert hours to milliseconds
+
+        for (const channelId in memory) {
+            memory[channelId] = memory[channelId].filter(entry => entry.timestamp >= cutoff);
+        }
+
+        await saveMemory();
+        logInfo('Global memory pruning completed successfully.');
+    } catch (error) {
+        logError('Error during global memory pruning process.', { error });
     }
 }

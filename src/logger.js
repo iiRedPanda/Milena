@@ -64,7 +64,7 @@ const logger = winston.createLogger({
             datePattern: 'YYYY-MM-DD',
             level: 'info',
             maxSize: '10m',
-            maxFiles: '14d',
+            maxFiles: '7d', // Updated to 7 days
         }),
         // Error logs
         new DailyRotateFile({

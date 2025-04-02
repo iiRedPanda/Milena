@@ -1,15 +1,20 @@
 export default {
     name: 'help',
     description: 'List all available commands.',
-    execute(message) {
+    async execute(interaction) {
+        const adminCommands = interaction.client.commands.filter(cmd => ['setup', 'config', 'memoryprune', 'clearmemory'].includes(cmd.data.name));
+        const userCommands = interaction.client.commands.filter(cmd => !['setup', 'config', 'memoryprune', 'clearmemory'].includes(cmd.data.name));
+
         const helpMessage = `
-        **Available Commands:**
-        - \`!setup\`: Configure bot settings.
-        - \`!config\`: View or update configurations.
-        - \`!clear\`: Clear memory for the current channel.
-        - \`!status\`: View bot status.
-        - \`!help\`: Display this help message.
+        **Admin Commands:**
+        ${adminCommands.map(cmd => `- \`/${cmd.data.name}\`: ${cmd.data.description}`).join('\n')}
+
+        **User Commands:**
+        ${userCommands.map(cmd => `- \`/${cmd.data.name}\`: ${cmd.data.description}`).join('\n')}
         `;
-        message.reply(helpMessage);
+        await interaction.reply({
+            content: helpMessage,
+            ephemeral: true,
+        });
     },
 };
