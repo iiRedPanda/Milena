@@ -1,13 +1,24 @@
 const fs = require('fs').promises; // Use async file operations
+const { Mutex } = require('async-mutex');
 
+/**
+ * A class to manage hybrid memory for storing channel-specific data.
+ */
 class HybridMemory {
+    /**
+     * Initialize the HybridMemory system.
+     * @param {string} memoryFile - The file path for storing memory data.
+     */
     constructor(memoryFile) {
         this.memoryFile = memoryFile;
         this.data = { channels: {} };
-        this.lock = false; // Simulate a lock
+        this.mutex = new Mutex();
         this.load();
     }
 
+    /**
+     * Load memory data from the file.
+     */
     async load() {
         try {
             const fileContent = await fs.readFile(this.memoryFile, 'utf-8');
@@ -24,18 +35,24 @@ class HybridMemory {
         }
     }
 
+    /**
+     * Save memory data to the file.
+     */
     async save() {
-        while (this.lock) await new Promise(resolve => setTimeout(resolve, 10)); // Wait for lock
-        this.lock = true;
+        const release = await this.mutex.acquire();
         try {
             await fs.writeFile(this.memoryFile, JSON.stringify(this.data, null, 2));
-        } catch (error) {
-            console.error(`Failed to save memory file ${this.memoryFile}:`, error);
         } finally {
-            this.lock = false;
+            release();
         }
     }
 
+    /**
+     * Add a message to a channel's memory.
+     * @param {string} channelId - The ID of the channel.
+     * @param {string} userId - The ID of the user.
+     * @param {string} content - The content of the message.
+     */
     async addMessage(channelId, userId, content) {
         if (!this.data.channels[channelId]) {
             this.data.channels[channelId] = [];
@@ -52,6 +69,11 @@ class HybridMemory {
         await this.save();
     }
 
+    /**
+     * Retrieve the context (recent messages) for a channel.
+     * @param {string} channelId - The ID of the channel.
+     * @returns {Array} - The recent messages in the channel.
+     */
     async getContext(channelId) {
         const cutoff = new Date(Date.now() - 60 * 60 * 1000); // 60 minutes ago
         const context = (this.data.channels[channelId] || []).filter(msg =>
@@ -61,6 +83,9 @@ class HybridMemory {
         return context.slice(-6);
     }
 
+    /**
+     * Prune messages older than the retention period from memory.
+     */
     async pruneOld() {
         const cutoff = new Date(Date.now() - 60 * 60 * 1000); // 60 minutes ago
         for (const channelId in this.data.channels) {
@@ -69,9 +94,16 @@ class HybridMemory {
             );
         }
         console.debug('Old messages pruned.');
-        await this.save();
+        // Save only if changes were made
+        if (Object.keys(this.data.channels).length > 0) {
+            await this.save();
+        }
     }
 
+    /**
+     * Clear memory for a specific channel.
+     * @param {string} channelId - The ID of the channel.
+     */
     async clearChannelMemory(channelId) {
         if (this.data.channels[channelId]) {
             delete this.data.channels[channelId];

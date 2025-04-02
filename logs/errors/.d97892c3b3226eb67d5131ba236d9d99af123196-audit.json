@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\errors\\.d97892c3b3226eb67d5131ba236d9d99af123196-audit.json",
+    "files": [
+        {
+            "date": 1743561480920,
+            "name": "E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\errors\\2025-04-02.log",
+            "hash": "f4613ed1fbe138041877a8261563e86a01fd92f864fc792d076e30c329bc47a9"
+        }
+    ],
+    "hashType": "sha256"
+}

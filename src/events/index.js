@@ -1,26 +1,25 @@
-const { client } = require('../bot');
-const { logInfo, logError } = require('../utils/logger');
-const { getConfigurations, saveMemory } = require('../utils/config');
-const { makeGeminiRequest } = require('../utils/api');
-const { isRateLimited } = require('../utils/rateLimit');
-const { CHANNEL_BEHAVIOR } = require('../constants');
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath, pathToFileURL } from 'url';
+import logger from '../logger.js';
 
-async function setupEvents() {
-    client.once('ready', () => {
-        logInfo(`Logged in as ${client.user.tag}`);
-    });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-    client.on('messageCreate', async (message) => {
-        if (message.author.bot || message.mentions.everyone) return;
+export async function loadEvents(client) {
+    const eventFiles = (await fs.readdir(path.resolve(__dirname))).filter(file => file.endsWith('.js') && file !== 'index.js');
 
-        logInfo(`📨 Message received: "${message.content}" | From: ${message.author.tag} | Channel: ${message.channel.id}`);
-
-        const configurations = await getConfigurations();
-        const channelBehavior = configurations.channelBehavior[message.channel.id] || CHANNEL_BEHAVIOR.DISABLED;
-
-        // Implement the rest of the message handling logic here
-        // This includes checking channel behavior, rate limiting, and calling the Gemini API
-    });
+    for (const file of eventFiles) {
+        const eventPath = pathToFileURL(path.join(__dirname, file)).href;
+        const event = await import(eventPath);
+        if (event.default && event.default.name && event.default.execute) {
+            client.on(event.default.name, async (...args) => {
+                try {
+                    await event.default.execute(...args, client);
+                } catch (error) {
+                    // Log errors if needed
+                }
+            });
+        }
+    }
 }
-
-module.exports = { setupEvents };

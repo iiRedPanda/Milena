@@ -1,38 +1,59 @@
-require('dotenv').config();
-const { client } = require('./bot');
-const { setupCommands } = require('./commands'); // Ensure correct import
-const { setupEvents } = require('./events');
-const { logInfo, logError } = require('./utils/logger');
-const { saveMemory, saveConfigurations } = require('./utils/config');
+import 'dotenv/config';
+import { Client, GatewayIntentBits } from 'discord.js';
+import { loadCommands } from './commands/index.js';
+import { loadEvents } from './events/index.js';
+import { testGeminiAPI } from './ai.js';
+import { logError } from './logger.js';
+import { token } from './config.js';
 
-function validateEnvVariables(requiredVars) {
-    const missingVars = requiredVars.filter((key) => !process.env[key]);
-    if (missingVars.length > 0) {
-        logError('Missing required environment variables', new Error('Validation Error'), { missingVars });
-        process.exit(1);
-    }
-}
-
-validateEnvVariables(['DISCORD_BOT_TOKEN', 'GEMINI_API_KEY', 'GEMINI_API_URL']);
-
-async function main() {
-    try {
-        await setupCommands(); // Await setupCommands to ensure it completes
-        await setupEvents();
-        await client.login(process.env.DISCORD_BOT_TOKEN);
-        logInfo('Milena Bot is up and running!');
-    } catch (error) {
-        logError('Error during bot startup', error);
-        process.exit(1);
-    }
-}
-
-main();
-
-process.on('SIGINT', async () => {
-    logInfo('Shutting down gracefully...');
-    await saveMemory();
-    await saveConfigurations();
-    logInfo('Milena Bot has been shut down successfully.');
-    process.exit(0);
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+    ],
 });
+
+(async () => {
+    let errorsOccurred = false;
+
+    try {
+        // Load commands
+        try {
+            await loadCommands(client);
+        } catch (error) {
+            errorsOccurred = true;
+            logError('Error loading commands:', { message: error.message, stack: error.stack });
+        }
+
+        // Load events
+        try {
+            await loadEvents(client);
+        } catch (error) {
+            errorsOccurred = true;
+            logError('Error loading events:', { message: error.message, stack: error.stack });
+        }
+
+        // Bot initialization
+        client.once('ready', async () => {
+            try {
+                await testGeminiAPI();
+            } catch (error) {
+                errorsOccurred = true;
+                logError('Error during API test:', { message: error.message, stack: error.stack });
+            }
+
+            // Display a simple message based on the success or failure of the startup process
+            if (errorsOccurred) {
+                console.log('❌ Errors occurred during startup. Check logs at logs/errors-<DATE>.log.');
+            } else {
+                console.log('✅ OK');
+            }
+        });
+
+        await client.login(token);
+    } catch (error) {
+        logError('Critical error during startup process:', { message: error.message, stack: error.stack });
+        console.log('❌ Critical error occurred during startup. Check logs at logs/errors-<DATE>.log.');
+    }
+})();

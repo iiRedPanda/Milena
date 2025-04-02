@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+import { Client, GatewayIntentBits } from 'discord.js';
 
 const client = new Client({
     intents: [
@@ -8,4 +8,6 @@ const client = new Client({
     ],
 });
 
-module.exports = { client };
+client.login(process.env.DISCORD_BOT_TOKEN);
+
+export default client;
