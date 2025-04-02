@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath, pathToFileURL } from 'url'; // Import helper functions
-import { logInfo, logError } from '../logger.js'; // Use ES module import for logger
+import { fileURLToPath, pathToFileURL } from 'url';
+import { logInfo, logError } from '../logger.js';
 
-const __filename = fileURLToPath(import.meta.url); // Get the current file path
-const __dirname = path.dirname(__filename); // Get the directory name
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export async function loadCommands(client) {
     client.commands = new Map();
@@ -13,8 +13,17 @@ export async function loadCommands(client) {
 
     for (const file of commandFiles) {
         if (file !== 'index.js') {
-            const command = await import(pathToFileURL(path.join(__dirname, file)).href); // Use pathToFileURL
-            client.commands.set(command.default.name, command.default);
+            try {
+                const command = await import(pathToFileURL(path.join(__dirname, file)).href);
+                if (!command.default?.data?.name) {
+                    logError('runtime', new Error(`Command file "${file}" is missing a valid "data.name" property.`));
+                    continue;
+                }
+                client.commands.set(command.default.data.name, command.default);
+                logInfo(`Loaded command: ${command.default.data.name}`);
+            } catch (error) {
+                logError('runtime', error, { file });
+            }
         }
     }
 }

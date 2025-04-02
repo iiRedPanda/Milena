@@ -1,9 +1,5 @@
-[2025-04-02T18:19:33.521Z] [STARTUP] Bot started successfully.
-[2025-04-02T18:23:17.023Z] [STARTUP] Bot started successfully.
-[2025-04-02T18:24:42.485Z] [STARTUP] Bot started successfully.
-[02-04-2025T20:32:03.777] [STARTUP] Bot started successfully.
-[02-04-2025T20:38:55.062] [STARTUP] Bot started successfully.
-[02-04-2025T20:39:31.054] [STARTUP] Bot started successfully.
+[02-04-2025T22:06:51.864] [RUNTIME] Cannot read properties of undefined (reading 'name')
+[02-04-2025T22:10:31.332] [RUNTIME] Cannot read properties of undefined (reading 'name')
 [2025-04-02 22:28:27] [ERROR]: runtime Command file "clear.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"clear.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:24:9"}
 [2025-04-02 22:28:27] [ERROR]: runtime Command file "config.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"config.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:24:9"}
 [2025-04-02 22:28:27] [ERROR]: runtime Command file "help.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"help.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:24:9"}
