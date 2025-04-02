@@ -1,3 +1,5 @@
+import { logInfo } from './src/logger.js'; // Use ES module import for logger
+
 const http = require('http');
 
 const server = http.createServer((req, res) => {
@@ -16,5 +18,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, () => {
-    console.log('Health check server running on port 3000');
+    logInfo('Health check server running on port 3000');
 });

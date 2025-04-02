@@ -1,5 +1,6 @@
 const fs = require('fs').promises; // Use async file operations
 const { Mutex } = require('async-mutex');
+import { logInfo, logWarn, logError, logDebug } from './src/logger.js'; // Use ES module import for logger
 
 /**
  * A class to manage hybrid memory for storing channel-specific data.
@@ -23,14 +24,14 @@ class HybridMemory {
         try {
             const fileContent = await fs.readFile(this.memoryFile, 'utf-8');
             this.data = JSON.parse(fileContent);
-            console.info(`Memory file ${this.memoryFile} loaded successfully.`);
+            logInfo(`Memory file ${this.memoryFile} loaded successfully.`);
         } catch (error) {
             if (error.code === 'ENOENT') {
-                console.warn(`Memory file ${this.memoryFile} not found. Starting with empty memory.`);
+                logWarn(`Memory file ${this.memoryFile} not found. Starting with empty memory.`);
             } else if (error instanceof SyntaxError) {
-                console.error(`Memory file ${this.memoryFile} contains invalid JSON. Starting with empty memory.`);
+                logError(`Memory file ${this.memoryFile} contains invalid JSON. Starting with empty memory.`);
             } else {
-                console.error(`Unexpected error loading memory file ${this.memoryFile}:`, error);
+                logError(`Unexpected error loading memory file ${this.memoryFile}:`, { error });
             }
         }
     }
@@ -64,7 +65,7 @@ class HybridMemory {
             timestamp: new Date().toISOString()
         });
 
-        console.debug(`Message added to channel ${channelId}:`, { userId, content });
+        logDebug(`Message added to channel ${channelId}:`, { userId, content });
         await this.pruneOld();
         await this.save();
     }
@@ -79,7 +80,7 @@ class HybridMemory {
         const context = (this.data.channels[channelId] || []).filter(msg =>
             new Date(msg.timestamp) >= cutoff
         );
-        console.debug(`Context retrieved for channel ${channelId}:`, context);
+        logDebug(`Context retrieved for channel ${channelId}:`, context);
         return context.slice(-6);
     }
 
@@ -93,7 +94,7 @@ class HybridMemory {
                 msg => new Date(msg.timestamp) >= cutoff
             );
         }
-        console.debug('Old messages pruned.');
+        logDebug('Old messages pruned.');
         // Save only if changes were made
         if (Object.keys(this.data.channels).length > 0) {
             await this.save();
@@ -107,7 +108,7 @@ class HybridMemory {
     async clearChannelMemory(channelId) {
         if (this.data.channels[channelId]) {
             delete this.data.channels[channelId];
-            console.info(`Memory cleared for channel ${channelId}.`);
+            logInfo(`Memory cleared for channel ${channelId}.`);
             await this.save();
         }
     }

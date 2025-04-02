@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url'; // Import helper functions
-import logger from '../logger.js'; // Use default import for logger
+import { logInfo, logError } from '../logger.js'; // Use ES module import for logger
 
 const __filename = fileURLToPath(import.meta.url); // Get the current file path
 const __dirname = path.dirname(__filename); // Get the directory name

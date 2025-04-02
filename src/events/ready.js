@@ -1,12 +1,12 @@
 import client from '../client.js';
 import { testGeminiAPI } from '../ai.js';
-import logger from '../logger.js';
+import { logInfo, logger } from '../logger.js'; // Use ES module import for logger
 
 export default {
     name: 'ready',
     once: true,
     async execute() {
-        // Remove redundant startup log generation
+        logInfo('Bot is ready and connected.');
         try {
             await testGeminiAPI();
         } catch (error) {

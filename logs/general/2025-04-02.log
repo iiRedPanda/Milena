@@ -552,3 +552,49 @@
 [2025-04-02 19:20:29] [INFO]: Message received: "Im testing out if ur api connection is wroking, it seems to work fine" from redpanda5678 in channel 1238541000465711109
 [2025-04-02 19:20:29] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: Im testing out if ur api connection is wroking, it seems to work fine\nAI:"}
 [2025-04-02 19:20:38] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 19:33:14] [INFO]: Message received: "<@1355957818577916145> how was ur day today" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 19:33:14] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: <@1355957818577916145> how was ur day today\nAI:"}
+[2025-04-02 19:33:21] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 19:47:14] [INFO]: Message received: "My day was fine, i usually dont eat at a normal time, but today i came home from work and ate dinner right away. So im pretty proud of that" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 19:47:14] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: My day was fine, i usually dont eat at a normal time, but today i came home from work and ate dinner right away. So im pretty proud of that\nAI:"}
+[2025-04-02 19:47:14] [INFO]: Message received: "My day was fine, i usually dont eat at a normal time, but today i came home from work and ate dinner right away. So im pretty proud of that" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 19:47:14] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: My day was fine, i usually dont eat at a normal time, but today i came home from work and ate dinner right away. So im pretty proud of that\nAI:"}
+[2025-04-02 19:47:22] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 19:47:23] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 19:50:38] [INFO]: Message received: "<@1355957818577916145> test" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 19:50:38] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: <@1355957818577916145> test\nAI:"}
+[2025-04-02 19:50:38] [INFO]: Message received: "<@1355957818577916145> test" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 19:50:38] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: <@1355957818577916145> test\nAI:"}
+[2025-04-02 19:50:46] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 19:50:47] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 19:56:20] [INFO]: Message received: "<@1355957818577916145> hi" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 19:56:20] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: <@1355957818577916145> hi\nAI:"}
+[2025-04-02 19:56:26] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 20:02:49] [INFO]: Message received: "<@1355957818577916145> hi" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 20:02:49] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: <@1355957818577916145> hi\nAI:"}
+[2025-04-02 20:02:55] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 20:04:42] [INFO]: Message received: "<@1355957818577916145> hi" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 20:04:42] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: <@1355957818577916145> hi\nAI:"}
+[2025-04-02 20:04:46] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 20:32:53] [INFO]: Message received: "<@1355957818577916145> test" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 20:32:53] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: <@1355957818577916145> test\nAI:"}
+[2025-04-02 20:33:00] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 20:39:12] [INFO]: Message received: "Great" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 20:39:12] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: Great\nAI:"}
+[2025-04-02 20:39:22] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 20:39:35] [INFO]: Message received: "Thankyou" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 20:39:35] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: Thankyou\nAI:"}
+[2025-04-02 20:42:55] [INFO]: Message received: "<@1355957818577916145> hi" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 20:42:55] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: <@1355957818577916145> hi\nAI:"}
+[2025-04-02 20:42:59] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 20:48:11] [INFO]: Bot is ready and connected.
+[2025-04-02 20:48:18] [INFO]: Message received: "hi" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 20:48:18] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: hi\nAI:"}
+[2025-04-02 20:48:22] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 21:12:32] [INFO]: Bot is ready and connected.
+[2025-04-02 21:28:54] [INFO]: Message received: "hi" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 21:28:54] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: hi\nAI:"}
+[2025-04-02 21:29:00] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}
+[2025-04-02 21:29:18] [INFO]: Message received: "<@1355957818577916145> just cheking up on you" from redpanda5678 in channel 1238541000465711109
+[2025-04-02 21:29:18] [INFO]: Sending request to Gemini API at URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent | Meta: {"prompt":"User: <@1355957818577916145> just cheking up on you\nAI:"}
+[2025-04-02 21:29:25] [INFO]: Memory saved successfully. | Meta: {"filePath":"E:\\documenten\\discord\\Bots\\Main bots\\Milena\\logs\\json\\memory.json"}

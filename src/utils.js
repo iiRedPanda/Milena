@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { logInfo, logError } from './logger.js';
+import { logInfo, logError } from './logger.js'; // Use ES module import for logger
 
 export const STRINGS = {
     MEMORY_CLEARED: 'Memory for this channel has been cleared.',

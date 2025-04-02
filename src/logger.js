@@ -74,17 +74,6 @@ const logger = winston.createLogger({
             maxSize: '10m',
             maxFiles: '14d',
         }),
-        // Console output (suppress error messages)
-        new winston.transports.Console({
-            format: winston.format.combine(
-                winston.format.colorize(),
-                winston.format.printf(({ level, message, timestamp, ...meta }) => {
-                    if (level === 'error') return ''; // Suppress error messages in the console
-                    const metaString = Object.keys(meta).length ? ` | Meta: ${JSON.stringify(meta)}` : '';
-                    return `[${timestamp}] [${level.toUpperCase()}]: ${message}${metaString}`;
-                })
-            ),
-        }),
     ],
 });
 

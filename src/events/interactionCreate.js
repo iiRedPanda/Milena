@@ -1,3 +1,5 @@
+import { logError } from '../logger.js'; // Use ES module import for logger
+
 export default {
     name: 'interactionCreate',
     async execute(interaction, client) {
@@ -9,7 +11,7 @@ export default {
         try {
             await command.execute(interaction);
         } catch (error) {
-            console.error(`Error executing command ${interaction.commandName}:`, error);
+            logError(`Error executing command ${interaction.commandName}:`, { error });
             await interaction.reply({ content: 'There was an error executing this command!', ephemeral: true });
         }
     }

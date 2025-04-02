@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
-import logger from '../logger.js';
+import { logError } from '../logger.js'; // Use ES module import for logger
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,7 +17,7 @@ export async function loadEvents(client) {
                 try {
                     await event.default.execute(...args, client);
                 } catch (error) {
-                    logger.error(`Error in event ${event.default.name}:`, { message: error.message, stack: error.stack });
+                    logError(`Error in event ${event.default.name}:`, { message: error.message, stack: error.stack });
                 }
             });
         }

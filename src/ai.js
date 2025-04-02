@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { logError, logWarn, logInfo } from './logger.js'; // Import log functions
+import { logError, logWarn, logInfo } from './logger.js'; // Use ES module import for logger
 
 // Define the main and fallback API URLs
 const mainApiUrl = process.env.GEMINI_API_URL || "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent";
