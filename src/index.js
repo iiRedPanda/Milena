@@ -17,30 +17,12 @@ const client = new Client({
 
 (async () => {
     try {
-        // Load commands
-        const commands = [];
-        await loadCommands(client);
-        client.commands.forEach(command => commands.push(command.data.toJSON()));
+        const [commands, events] = await Promise.all([
+            loadCommands(client),
+            loadEvents(client),
+        ]);
 
-        const rest = new REST({ version: '10' }).setToken(token);
-        await rest.put(
-            Routes.applicationCommands(process.env.DISCORD_CLIENT_ID),
-            { body: commands }
-        );
-
-        // Load events
-        await loadEvents(client);
-
-        // Bot initialization
-        client.once('ready', async () => {
-            try {
-                await testGeminiAPI();
-                log('info', 'Bot is ready and commands are registered.');
-            } catch (error) {
-                logError('runtime', error);
-            }
-        });
-
+        log('info', `Loaded ${commands.length} commands and ${events.length} events.`);
         await client.login(token);
     } catch (error) {
         logError('runtime', error);

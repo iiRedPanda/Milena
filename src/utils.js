@@ -25,17 +25,25 @@ const logsBaseDir = path.resolve('logs');
 const jsonLogsDir = path.join(logsBaseDir, 'json');
 const logRetentionDays = 7; // Retain log files for 7 days
 
+let memorySaveTimeout;
+
 /**
  * Save memory to a JSON file.
  */
 export async function saveMemory() {
-    try {
-        const filePath = path.join(jsonLogsDir, 'memory.json');
-        await fs.writeFile(filePath, JSON.stringify(memory, null, 2));
-        logInfo('Memory saved successfully.', { filePath });
-    } catch (error) {
-        logError('Error saving memory.', { error });
-    }
+    if (memorySaveTimeout) return; // Prevent multiple saves within a short period
+
+    memorySaveTimeout = setTimeout(async () => {
+        try {
+            const filePath = path.join(jsonLogsDir, 'memory.json');
+            await fs.writeFile(filePath, JSON.stringify(memory, null, 2));
+            logInfo('Memory saved successfully.', { filePath });
+        } catch (error) {
+            logError('Error saving memory.', { error });
+        } finally {
+            memorySaveTimeout = null;
+        }
+    }, 300000); // Save every 5 minutes
 }
 
 /**
