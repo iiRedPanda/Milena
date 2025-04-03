@@ -1,10 +1,8 @@
 import 'dotenv/config';
-import { Client, GatewayIntentBits, Routes } from 'discord.js';
-import { REST } from '@discordjs/rest';
-import { logError, log } from '../botLogger.js'; // Correctly import log and logError from botLogger.js
+import { Client, GatewayIntentBits } from 'discord.js';
+import { logError, logInfo } from './logger.js'; // Use the updated logger
 import { loadCommands } from './commands/index.js';
 import { loadEvents } from './events/index.js';
-import { testGeminiAPI } from './ai.js';
 import { token } from './config.js';
 
 const client = new Client({
@@ -17,14 +15,19 @@ const client = new Client({
 
 (async () => {
     try {
-        const [commands, events] = await Promise.all([
-            loadCommands(client),
-            loadEvents(client),
-        ]);
+        logInfo('Starting bot...');
+        await loadCommands(client);
+        await loadEvents(client);
 
-        log('info', `Loaded ${commands.length} commands and ${events.length} events.`);
         await client.login(token);
+        logInfo('Bot logged in successfully.');
     } catch (error) {
-        logError('runtime', error);
+        logError('Failed to start the bot:', { error });
+        process.exit(1); // Exit the process with an error code
     }
 })();
+
+process.on('unhandledRejection', (reason) => {
+    logError('Unhandled Promise Rejection:', { reason });
+    process.exit(1); // Exit the process to avoid undefined behavior
+});

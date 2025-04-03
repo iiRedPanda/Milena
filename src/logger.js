@@ -53,6 +53,9 @@ const logFormat = winston.format.combine(
     })
 );
 
+// Centralize log level configuration
+const LOG_LEVEL = process.env.LOG_LEVEL || 'info';
+
 // Configure the logger
 const logger = winston.createLogger({
     levels: logLevels,
@@ -109,13 +112,74 @@ const logger = winston.createLogger({
     ],
 });
 
-// Utility functions for logging
-export const logInfo = (message, meta = {}) => logger.log('info', message, meta);
-export const logWarn = (message, meta = {}) => logger.log('warn', message, meta);
-export const logError = (message, meta = {}) => logger.log('error', message, meta);
-export const logDebug = (message, meta = {}) => logger.log('debug', message, meta);
-export const logStartup = (message, meta = {}) => logger.log('startup', message, meta);
-export const logRuntime = (message, meta = {}) => logger.log('runtime', message, meta);
-export const logGeneral = (message, meta = {}) => logger.log('general', message, meta);
+// Add a console transport with log level filtering
+logger.add(new winston.transports.Console({
+    level: LOG_LEVEL,
+    format: winston.format.combine(
+        winston.format.colorize(),
+        winston.format.printf(({ level, message, timestamp }) => `[${timestamp}] [${level.toUpperCase()}]: ${message}`)
+    ),
+}));
+
+// Validate log levels
+const validLogLevels = Object.keys(logLevels);
+function validateLogLevel(level) {
+    if (!validLogLevels.includes(level)) {
+        throw new Error(`Invalid log level: ${level}. Valid levels are: ${validLogLevels.join(', ')}`);
+    }
+}
+
+// Add fallback for logging failures
+logger.on('error', (error) => {
+    console.error(`[Logging Error]: ${error.message}`);
+});
+
+// Validate transports
+logger.transports.forEach((transport) => {
+    if (transport instanceof DailyRotateFile) {
+        if (!validLogLevels.includes(transport.level)) {
+            console.error(`Misconfigured transport: Invalid level "${transport.level}" in transport for file "${transport.filename}"`);
+        }
+    }
+});
+
+// Sanitize metadata
+function sanitizeMeta(meta) {
+    try {
+        return JSON.stringify(meta);
+    } catch (error) {
+        return '[Invalid Metadata]';
+    }
+}
+
+// Utility functions for logging with validation and sanitization
+export const logInfo = (message, meta = {}) => {
+    validateLogLevel('info');
+    logger.log('info', message, sanitizeMeta(meta));
+};
+export const logWarn = (message, meta = {}) => {
+    validateLogLevel('warn');
+    logger.log('warn', message, sanitizeMeta(meta));
+};
+export const logError = (message, meta = {}) => {
+    validateLogLevel('error');
+    logger.log('error', message, sanitizeMeta(meta));
+};
+export const logDebug = (message, meta = {}) => {
+    validateLogLevel('debug');
+    logger.log('debug', message, sanitizeMeta(meta));
+};
+export const logStartup = (message, meta = {}) => {
+    validateLogLevel('startup');
+    logger.log('startup', message, sanitizeMeta(meta));
+};
+export const logRuntime = (message, meta = {}) => {
+    validateLogLevel('runtime');
+    logger.log('runtime', message, sanitizeMeta(meta));
+};
+export const logGeneral = (message, meta = {}) => {
+    validateLogLevel('general');
+    logger.log('general', message, sanitizeMeta(meta));
+};
 
 export default logger;

@@ -1,0 +1,108 @@
+[2025-04-03 02:35:24] [INFO]: Loaded event: error
+[2025-04-03 02:35:24] [ERROR]: runtime Command file "clear.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"clear.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:35:24] [INFO]: Loaded event: guildDelete
+[2025-04-03 02:35:24] [INFO]: Loaded command: clearmemory
+[2025-04-03 02:35:24] [INFO]: Loaded event: interactionCreate
+[2025-04-03 02:35:24] [INFO]: Loaded event: messageCreate
+[2025-04-03 02:35:24] [ERROR]: runtime Command file "config.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"config.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:35:24] [INFO]: Loaded command: delete
+[2025-04-03 02:35:24] [ERROR]: runtime Command file "help.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"help.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:35:24] [ERROR]: runtime The requested module '../logger.js' does not provide an export named 'logger' | Meta: {"stack":"file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/events/ready.js:3\nimport { logInfo, logger } from '../logger.js'; // Use ES module import for logger\n                  ^^^^^^\nSyntaxError: The requested module '../logger.js' does not provide an export named 'logger'\n    at ModuleJob._instantiate (node:internal/modules/esm/module_job:182:21)\n    at async ModuleJob.run (node:internal/modules/esm/module_job:266:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)\n    at async loadEvents (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/events/index.js:15:27)\n    at async Promise.all (index 1)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:35:24] [INFO]: Loaded command: joke
+[2025-04-03 02:35:24] [INFO]: Loaded event: warn
+[2025-04-03 02:35:24] [INFO]: Loaded command: memoryprune
+[2025-04-03 02:35:24] [INFO]: Loaded command: ping
+[2025-04-03 02:35:24] [INFO]: Loaded command: poll
+[2025-04-03 02:35:24] [INFO]: Loaded command: quote
+[2025-04-03 02:35:24] [INFO]: Loaded command: remind
+[2025-04-03 02:35:24] [ERROR]: runtime The requested module '../utils.js' does not provide an export named 'logInfo' | Meta: {"stack":"file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/setup.js:1\nimport { saveConfigurations, STRINGS, logInfo } from '../utils.js';\n                                      ^^^^^^^\nSyntaxError: The requested module '../utils.js' does not provide an export named 'logInfo'\n    at ModuleJob._instantiate (node:internal/modules/esm/module_job:182:21)\n    at async ModuleJob.run (node:internal/modules/esm/module_job:266:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)\n    at async loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:17:33)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:35:24] [ERROR]: runtime Command file "status.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"status.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:35:24] [INFO]: Loaded command: summarize
+[2025-04-03 02:35:24] [INFO]: Loaded command: weather
+[2025-04-03 02:37:09] [INFO]: Loaded event: error
+[2025-04-03 02:37:09] [ERROR]: runtime Command file "clear.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"clear.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:37:09] [INFO]: Loaded event: guildDelete
+[2025-04-03 02:37:09] [INFO]: Loaded command: clearmemory
+[2025-04-03 02:37:09] [INFO]: Loaded event: interactionCreate
+[2025-04-03 02:37:09] [INFO]: Loaded event: messageCreate
+[2025-04-03 02:37:09] [ERROR]: runtime Command file "config.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"config.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:37:09] [INFO]: Loaded command: delete
+[2025-04-03 02:37:09] [ERROR]: runtime The requested module '../logger.js' does not provide an export named 'logger' | Meta: {"stack":"file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/events/ready.js:3\nimport { logInfo, logger } from '../logger.js'; // Use ES module import for logger\n                  ^^^^^^\nSyntaxError: The requested module '../logger.js' does not provide an export named 'logger'\n    at ModuleJob._instantiate (node:internal/modules/esm/module_job:182:21)\n    at async ModuleJob.run (node:internal/modules/esm/module_job:266:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)\n    at async loadEvents (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/events/index.js:15:27)\n    at async Promise.all (index 1)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:37:09] [ERROR]: runtime Command file "help.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"help.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:37:09] [INFO]: Loaded command: joke
+[2025-04-03 02:37:09] [INFO]: Loaded event: warn
+[2025-04-03 02:37:09] [INFO]: Loaded command: memoryprune
+[2025-04-03 02:37:09] [INFO]: Loaded command: ping
+[2025-04-03 02:37:09] [INFO]: Loaded command: poll
+[2025-04-03 02:37:09] [INFO]: Loaded command: quote
+[2025-04-03 02:37:09] [INFO]: Loaded command: remind
+[2025-04-03 02:37:09] [ERROR]: runtime The requested module '../utils.js' does not provide an export named 'logInfo' | Meta: {"stack":"file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/setup.js:1\nimport { saveConfigurations, STRINGS, logInfo } from '../utils.js';\n                                      ^^^^^^^\nSyntaxError: The requested module '../utils.js' does not provide an export named 'logInfo'\n    at ModuleJob._instantiate (node:internal/modules/esm/module_job:182:21)\n    at async ModuleJob.run (node:internal/modules/esm/module_job:266:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)\n    at async loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:17:33)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:37:09] [ERROR]: runtime Command file "status.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"status.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:37:09] [INFO]: Loaded command: summarize
+[2025-04-03 02:37:09] [INFO]: Loaded command: weather
+[2025-04-03 02:40:13] [INFO]: Loaded event: error
+[2025-04-03 02:40:13] [ERROR]: runtime Event file "guildCreate.js" is missing a valid "name" or "execute" property. | Meta: {"stack":"Error: Event file \"guildCreate.js\" is missing a valid \"name\" or \"execute\" property.\n    at loadEvents (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/events/index.js:17:37)\n    at async Promise.all (index 1)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:40:13] [ERROR]: runtime Command file "clear.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"clear.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:40:13] [INFO]: Loaded event: guildDelete
+[2025-04-03 02:40:13] [INFO]: Loaded command: clearmemory
+[2025-04-03 02:40:13] [INFO]: Loaded event: interactionCreate
+[2025-04-03 02:40:13] [INFO]: Loaded event: messageCreate
+[2025-04-03 02:40:13] [ERROR]: runtime Command file "config.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"config.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:40:13] [INFO]: Loaded command: delete
+[2025-04-03 02:40:13] [ERROR]: runtime Command file "help.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"help.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:40:13] [INFO]: Loaded command: joke
+[2025-04-03 02:40:13] [ERROR]: runtime The requested module '../logger.js' does not provide an export named 'logger' | Meta: {"stack":"file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/events/ready.js:3\nimport { logInfo, logger } from '../logger.js'; // Use ES module import for logger\n                  ^^^^^^\nSyntaxError: The requested module '../logger.js' does not provide an export named 'logger'\n    at ModuleJob._instantiate (node:internal/modules/esm/module_job:182:21)\n    at async ModuleJob.run (node:internal/modules/esm/module_job:266:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)\n    at async loadEvents (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/events/index.js:15:27)\n    at async Promise.all (index 1)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:40:13] [INFO]: Loaded command: memoryprune
+[2025-04-03 02:40:13] [INFO]: Loaded event: warn
+[2025-04-03 02:40:13] [INFO]: Loaded command: ping
+[2025-04-03 02:40:13] [INFO]: Loaded command: poll
+[2025-04-03 02:40:13] [INFO]: Loaded command: quote
+[2025-04-03 02:40:13] [INFO]: Loaded command: remind
+[2025-04-03 02:40:13] [ERROR]: runtime The requested module '../utils.js' does not provide an export named 'logInfo' | Meta: {"stack":"file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/setup.js:1\nimport { saveConfigurations, STRINGS, logInfo } from '../utils.js';\n                                      ^^^^^^^\nSyntaxError: The requested module '../utils.js' does not provide an export named 'logInfo'\n    at ModuleJob._instantiate (node:internal/modules/esm/module_job:182:21)\n    at async ModuleJob.run (node:internal/modules/esm/module_job:266:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)\n    at async loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:17:33)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:40:13] [ERROR]: runtime Command file "status.js" is missing a valid "data.name" property. | Meta: {"stack":"Error: Command file \"status.js\" is missing a valid \"data.name\" property.\n    at loadCommands (file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/commands/index.js:19:41)\n    at async Promise.all (index 0)\n    at async file:///E:/documenten/discord/Bots/Main%20bots/Milena/src/index.js:20:36"}
+[2025-04-03 02:40:13] [INFO]: Loaded command: summarize
+[2025-04-03 02:40:13] [INFO]: Loaded command: weather
+[2025-04-03 02:44:08] [INFO]: Loaded event: error
+[2025-04-03 02:44:08] [ERROR]: runtime
+[2025-04-03 02:44:08] [INFO]: Loaded event: guildDelete
+[2025-04-03 02:44:08] [INFO]: Loaded command: clearmemory
+[2025-04-03 02:44:08] [INFO]: Loaded event: interactionCreate
+[2025-04-03 02:44:08] [INFO]: Loaded event: messageCreate
+[2025-04-03 02:44:08] [ERROR]: runtime
+[2025-04-03 02:44:08] [INFO]: Loaded command: delete
+[2025-04-03 02:44:08] [ERROR]: runtime
+[2025-04-03 02:44:08] [ERROR]: runtime
+[2025-04-03 02:44:08] [INFO]: Loaded event: warn
+[2025-04-03 02:44:08] [INFO]: Loaded command: joke
+[2025-04-03 02:44:08] [INFO]: Loaded command: memoryprune
+[2025-04-03 02:44:08] [INFO]: Loaded command: ping
+[2025-04-03 02:44:08] [INFO]: Loaded command: poll
+[2025-04-03 02:44:08] [INFO]: Loaded command: quote
+[2025-04-03 02:44:08] [INFO]: Loaded command: remind
+[2025-04-03 02:44:08] [ERROR]: runtime
+[2025-04-03 02:44:08] [ERROR]: runtime
+[2025-04-03 02:44:08] [INFO]: Loaded command: summarize
+[2025-04-03 02:44:08] [INFO]: Loaded command: weather
+[2025-04-03 02:46:33] [INFO]: Starting bot...
+[2025-04-03 02:46:33] [ERROR]: runtime
+[2025-04-03 02:46:33] [INFO]: Loaded command: clearmemory
+[2025-04-03 02:46:33] [ERROR]: runtime
+[2025-04-03 02:46:33] [INFO]: Loaded command: delete
+[2025-04-03 02:46:33] [ERROR]: runtime
+[2025-04-03 02:46:33] [INFO]: Loaded command: joke
+[2025-04-03 02:46:33] [INFO]: Loaded command: memoryprune
+[2025-04-03 02:46:33] [INFO]: Loaded command: ping
+[2025-04-03 02:46:33] [INFO]: Loaded command: poll
+[2025-04-03 02:46:33] [INFO]: Loaded command: quote
+[2025-04-03 02:46:33] [INFO]: Loaded command: remind
+[2025-04-03 02:46:33] [ERROR]: runtime
+[2025-04-03 02:46:33] [ERROR]: runtime
+[2025-04-03 02:46:33] [INFO]: Loaded command: summarize
+[2025-04-03 02:46:33] [INFO]: Loaded command: weather
+[2025-04-03 02:46:33] [INFO]: Loaded event: error
+[2025-04-03 02:46:33] [INFO]: Loaded event: guildDelete
+[2025-04-03 02:46:33] [INFO]: Loaded event: interactionCreate
+[2025-04-03 02:46:33] [INFO]: Loaded event: messageCreate
+[2025-04-03 02:46:33] [ERROR]: runtime
+[2025-04-03 02:46:33] [INFO]: Loaded event: warn
+[2025-04-03 02:46:34] [INFO]: Bot logged in successfully.
