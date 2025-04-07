@@ -1,345 +1,203 @@
-# Milena's Game Collection
-
-Welcome to Milena's collection of fun and engaging games! Each game offers unique challenges and features. Use the dropdowns below to explore the rules and commands for each game.
-
-## Project Structure
-
-```
-milena/
-├── src/
-│   ├── commands/          # Command handlers
-│   │   └── games/         # Game-specific commands
-│   │       ├── dungeon.js # Dungeon command handler
-│   │       └── ...
-│   ├── games/             # Game implementations
-│   │   ├── GameBase.js   # Base game class
-│   │   ├── GameManager.js # Game management
-│   │   ├── dungeon/      # Dungeon Adventure game
-│   │   │   ├── DungeonGame.js      # Main game implementation
-│   │   │   ├── dungeonStats.js     # Game statistics
-│   │   │   └── storyGenerator.js   # Story generation
-│   │   ├── hangman/      # Hangman game
-│   │   │   └── HangmanGame.js     # Main game implementation
-│   │   ├── math/         # Math Games
-│   │   │   └── MathGame.js       # Main game implementation
-│   │   ├── tictactoe/    # Tic Tac Toe
-│   │   │   └── TicTacToeGame.js  # Main game implementation
-│   │   └── wordchain/    # Word Chain
-│   │       └── WordChainGame.js   # Main game implementation
-│   ├── core/             # Core functionality
-│   ├── services/         # External services integration
-│   └── ...
-└── ...
-```
-
-## Available Games
-
-<details>
-  <summary><strong> Dungeon Adventure</strong></summary>
-
-  **A text-based dungeon exploration game with multiple difficulty levels.**
-
-  ### How to Play
-  - Use `/dungeon start` to begin your adventure
-  - Navigate through the dungeon using `/dungeon explore`
-  - Battle monsters with `/dungeon attack`
-  - Manage your inventory with `/dungeon inventory`
-  - Track your progress with `/dungeon stats`
-
-  ### Commands
-  ```
-  /dungeon start <mode>
-    Modes: explorer | adventurer | hero
-    Example: /dungeon start explorer
-
-  /dungeon explore
-    Explore the dungeon
-    Example: /dungeon explore
-
-  /dungeon attack <target>
-    Attack monsters
-    Targets: monster | enemy | boss
-    Example: /dungeon attack monster
-
-  /dungeon use <item>
-    Use items from your inventory
-    Example: /dungeon use potion
-
-  /dungeon inventory
-    View your items and equipment
-    Example: /dungeon inventory
-
-  /dungeon stats
-    View your progress and achievements
-    Example: /dungeon stats
-  ```
-
-  ### Modes
-  - Explorer (15 minutes)
-    - Easy monsters
-    - Basic equipment
-    - Quick completion
-  - Adventurer (30 minutes)
-    - Moderate difficulty
-    - Better rewards
-    - More challenges
-  - Hero (60 minutes)
-    - Hard monsters
-    - Legendary equipment
-    - Ultimate challenge
-
-  ### Achievements
-  - First Steps: Complete your first dungeon
-  - Quick Master: Complete 5 quick mode games
-  - Normal Master: Complete 5 normal mode games
-  - Legendary Hero: Achieve all master achievements
-  - Boss Slayer: Defeat all boss monsters
-  - Treasure Hunter: Find all hidden treasures
-
-</details>
-
-<details>
-  <summary><strong> Hangman</strong></summary>
-
-  **A classic word guessing game with multiple categories.**
-
-  ### How to Play
-  - Start a game with `/hangman start`
-  - Choose a category
-  - Guess letters using the interactive buttons
-  - Try to guess the word before running out of guesses
-
-  ### Commands
-  ```
-  /hangman start <category>
-    Categories:
-    - animals
-    - fruits
-    - countries
-    - sports
-    - food
-    - jobs
-    Example: /hangman start animals
-
-  /hangman stats
-    View your performance
-    Example: /hangman stats
-  ```
-
-  ### Categories
-  - Animals: Lions, tigers, bears, and more
-  - Fruits: Apples, bananas, oranges, and more
-  - Countries: France, Japan, Brazil, and more
-  - Sports: Football, basketball, tennis, and more
-  - Food: Pizza, pasta, sushi, and more
-  - Jobs: Doctor, teacher, engineer, and more
-
-  ### Features
-  - 6 wrong guesses allowed
-  - Visual hangman stages
-  - Category-specific word lists
-  - Interactive letter buttons
-  - Score tracking
-  - Achievement system
-
-</details>
-
-<details>
-  <summary><strong> Math Games</strong></summary>
-
-  **Challenge your math skills with various operations and difficulties.**
-
-  ### How to Play
-  - Start a challenge with `/math start`
-  - Choose your operation and difficulty
-  - Solve problems as fast as you can
-  - Compete for the highest score
-
-  ### Commands
-  ```
-  /math start <type> <difficulty>
-    Types:
-    - add | addition
-    - sub | subtraction
-    - mul | multiplication
-    - div | division
-    - exp | exponent
-    
-    Difficulties:
-    - easy
-    - medium
-    - hard
-    
-    Example: /math start add medium
-  ```
-
-  ### Types
-  - Addition (+): Simple sums
-  - Subtraction (-): Basic differences
-  - Multiplication (*): Products
-  - Division (/): Quotients
-  - Exponent (^): Powers
-
-  ### Difficulties
-  - Easy: Numbers up to 10
-  - Medium: Numbers up to 100
-  - Hard: Numbers up to 1000
-
-  ### Scoring
-  - Base score: 100 points
-  - Time bonus: Up to 100 points
-  - Streak bonus: 10 points per streak
-  - Perfect round: 50 bonus points
-
-</details>
-
-<details>
-  <summary><strong> PvP Tic Tac Toe</strong></summary>
-
-  **A classic two-player game with modern Discord integration.**
-
-  ### How to Play
-  - Challenge a friend with `/tictactoe start`
-  - Take turns placing X or O
-  - Try to get 3 in a row
-  - Win by blocking your opponent's moves
-
-  ### Commands
-  ```
-  /tictactoe start <opponent>
-    Example: /tictactoe start @friend
-
-  /tictactoe stats
-    View your win/loss record
-    Example: /tictactoe stats
-  ```
-
-  ### Features
-  - Real-time multiplayer
-  - Interactive board buttons
-  - Turn timer (30 seconds)
-  - Win/Draw detection
-  - Move history tracking
-  - Score tracking
-
-  ### Winning Conditions
-  - Get 3 in a row horizontally
-  - Get 3 in a row vertically
-  - Get 3 in a row diagonally
-  - Block all opponent's moves (Draw)
-
-</details>
-
-<details>
-  <summary><strong> Word Chain</strong></summary>
-
-  **A continuous multiplayer word game where players take turns building word chains.**
-
-  ### How to Play
-  - The game starts automatically when someone types a valid word in the designated channel
-  - Players take turns - no playing twice in a row
-  - Each word must start with the last letter of the previous word
-  - The game continues until someone enters an invalid word
-
-  ### Commands
-  - Type any word to start or continue the game
-  - `/wordchain rules` - View game rules
-  - `/wordchain stats` - View game statistics
-
-  ### Rules
-  1. Type any word to start the game
-  2. Each word must start with the last letter of the previous word
-  3. Minimum word length: 3 letters
-  4. No repeating words
-  5. No proper nouns or abbreviations
-  6. Players take turns - no playing twice in a row
-  7. Game continues until someone enters an invalid word
-  8. Turn timeout: 30 seconds
-
-  ### Game Settings
-  - Admin-selected channel only
-  - Anyone can participate at any time
-  - Turn-based gameplay
-  - No maximum players
-  - No maximum rounds
-  - Turn timeout: 30 seconds
-  - Game ends when invalid word is entered
-
-</details>
-
-## Utility Commands
-
-<details>
-  <summary>Game Statistics</summary>
-
-  View detailed game statistics:
-  - `/stats` - Overall game statistics
-  - `/stats user` - Personal statistics
-  - `/stats server` - Server statistics
-  - `/stats game <game>` - Specific game statistics
-
-</details>
-
-<details>
-  <summary>Leaderboards</summary>
-
-  View game leaderboards:
-  - `/leaderboard` - Overall leaderboard
-  - `/leaderboard <game>` - Game-specific leaderboard
-  - `/leaderboard weekly` - Weekly rankings
-  - `/leaderboard monthly` - Monthly rankings
-
-</details>
-
-<details>
-  <summary>Game Settings</summary>
-
-  Configure game preferences:
-  - `/settings` - View current settings
-  - `/settings set <key> <value>` - Change settings
-  - `/settings reset` - Reset to defaults
-
-</details>
-
-## Game Development Structure
-
-Each game follows a consistent structure:
-
-```
-src/games/<game-name>/
-├── <GameName>Game.js      # Main game implementation
-├── storyGenerator.js      # (Optional) Story generation
-├── stats.js              # (Optional) Game statistics
-└── index.js             # Export default game class
-```
-
-This structure provides:
-- Clear separation of concerns
-- Easy maintenance and updates
-- Consistent implementation patterns
-- Better organization for larger games
-
-## Quick Start
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/iiRedPanda/Milena.git
-cd Milena
-
-# 2. Install dependencies
-npm install
-
-# 3. Configure environment variables
-cp .env.example .env
-# Edit .env with your configuration
-
-# 4. Start the bot
-npm start
-
-# 5. Run in development mode (optional)
-npm run dev
-```
-
-## License
-
-MIT License - see LICENSE file for details.
+# 🤖 Milena - Your Ultimate Discord Companion
+
+[![GitHub](https://img.shields.io/github/stars/iiRedPanda/Milena?style=social)](https://github.com/iiRedPanda/Milena)
+[![Discord](https://img.shields.io/discord/123456789012345678?color=7289da&label=Discord&logo=discord)](https://discord.gg/your-invite)
+
+Welcome to Milena, your personal Discord assistant packed with exciting games, AI features, and useful utilities! 🎮 ✨
+
+## ✨ Features Overview
+
+### 🎮 Interactive Games
+- 🏰 **Dungeon Adventure** - Epic text-based RPG with multiple difficulty levels
+- 🎯 **Hangman** - Classic word guessing game with various categories
+- 🔢 **Math Games** - Challenge your mathematical skills
+- ⭕ **Tic Tac Toe** - Strategic PvP battles
+- 📝 **Word Chain** - Engaging multiplayer word game
+
+### 🤖 AI-Powered Features
+- 😄 **Joke Generator** - Get hilarious programming jokes
+- 📚 **Story Generator** - Create unique tales across different genres
+- 🎭 **Personality System** - Customize how Milena interacts
+- 📝 **Text Summarizer** - Quick summaries of long texts
+- 🌦️ **Weather Updates** - Real-time weather information
+
+### 🛠️ Utility Tools
+- 📚 **Help System** - Detailed command documentation
+- 🏓 **Ping** - Check bot response time
+- ⏰ **Reminders** - Never miss important events
+- 📊 **Status** - Monitor bot performance
+
+## 🎮 Games in Detail
+
+### 🏰 Dungeon Adventure
+> Embark on an epic text-based journey!
+
+**Features:**
+- 3 difficulty modes: Explorer, Adventurer, Hero
+- Dynamic combat system
+- Rich inventory management
+- Achievement system
+- Unique storylines
+
+**Commands:**
+\`\`\`
+/dungeon start <mode>    - Begin your adventure
+/dungeon explore         - Explore the dungeon
+/dungeon attack <target> - Battle monsters
+/dungeon inventory      - Manage your items
+/dungeon stats          - View progress
+\`\`\`
+
+### 🎯 Hangman
+> Test your vocabulary with themed word challenges!
+
+**Categories:**
+- 🦁 Animals
+- 🍎 Fruits
+- 🌍 Countries
+- ⚽ Sports
+- 🍕 Food
+- 👨‍💼 Jobs
+
+**Commands:**
+\`\`\`
+/hangman start <category> - Start a new game
+/hangman stats           - View your statistics
+\`\`\`
+
+### 🔢 Math Games
+> Challenge your mathematical prowess!
+
+**Game Types:**
+- ➕ Addition
+- ➖ Subtraction
+- ✖️ Multiplication
+- ➗ Division
+- 💫 Exponents
+
+**Difficulty Levels:**
+- 🟢 Easy (1-10)
+- 🟡 Medium (1-100)
+- 🔴 Hard (1-1000)
+
+**Commands:**
+\`\`\`
+/math start <type> <difficulty> - Start a math challenge
+\`\`\`
+
+### ⭕ Tic Tac Toe
+> Classic PvP action with modern features!
+
+**Features:**
+- Interactive game board
+- Real-time updates
+- Win tracking
+- Competitive stats
+
+**Commands:**
+\`\`\`
+/tictactoe start @player - Challenge someone
+/tictactoe stats        - View your record
+\`\`\`
+
+### 📝 Word Chain
+> Keep the word chain going in this multiplayer word game!
+
+**Features:**
+- Automatic word validation
+- Turn-based gameplay
+- No explicit join needed
+- Real-time scoring
+
+**How to Play:**
+- Type a valid word in the game channel
+- Each word must start with the last letter of the previous word
+- No word repetitions allowed
+
+## 🤖 AI Features
+
+### 😄 Joke Generator
+> Get clean, family-friendly programming jokes!
+
+**Features:**
+- Curated joke database
+- Category filtering
+- Safe content only
+
+**Commands:**
+\`\`\`
+/joke - Get a random joke
+\`\`\`
+
+### 📚 Story Generator
+> Create unique stories across different genres!
+
+**Genres:**
+- 🏰 Fantasy
+- 🚀 Sci-Fi
+- 🔍 Mystery
+- 🗺️ Adventure
+- 👻 Horror
+- 😄 Comedy
+- 💝 Romance
+
+**Commands:**
+\`\`\`
+/story - Generate a unique story
+\`\`\`
+
+### 🎭 Personality System
+> Customize how Milena interacts!
+
+**Styles:**
+- 😊 Casual
+- 👔 Professional
+- 🤝 Friendly
+- 😄 Humorous
+- 💻 Technical
+
+**Commands:**
+\`\`\`
+/personality list - View available personalities
+/personality set  - Change personality
+/personality view - See current settings
+\`\`\`
+
+## 🛠️ Technical Details
+
+### 📊 System Requirements
+- Memory: 512MB limit
+- CPU: 50% limit
+- Max guilds: 1
+- Max channels: 50
+- Max users: 100
+
+### 🚀 Setup
+1. Clone the repository
+2. Install dependencies: \`npm install\`
+3. Configure \`.env\` file
+4. Start the bot: \`node index.js\`
+
+### 📦 Dependencies
+- discord.js
+- node-fetch
+- @discordjs/builders
+- @discordjs/rest
+
+## 🤝 Support & Community
+
+Need help? Join our [Discord server](https://discord.gg/your-invite) for:
+- 💬 Community support
+- 🎮 Game challenges
+- 🎯 Feature requests
+- 🐛 Bug reports
+
+## 📝 License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## 🙏 Credits
+
+- Word lists: [dwyl/english-words](https://github.com/dwyl/english-words)
+- Game mechanics: Inspired by classic games
+- Community: Thanks to all contributors!
