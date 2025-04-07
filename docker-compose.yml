@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: milena-bot
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./logs:/usr/src/app/logs
+      - ./data:/usr/src/app/data
+    networks:
+      - bot-network
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+networks:
+  bot-network:
+    driver: bridge

@@ -1,0 +1,7 @@
+{
+  "maxTokens": 150,
+  "temperature": 0.7,
+  "geminiApiUrl": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent",
+  "memoryRetentionMinutes": 60,
+  "loggingLevel": "info"
+}

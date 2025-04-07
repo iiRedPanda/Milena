@@ -4,7 +4,7 @@ import { configurations, saveConfigurations } from '../utils.js'; // Replace req
 export default {
     name: 'guildDelete', // Ensure the name is defined
     async execute(guild) {
-        logger.warn(`Removed from guild: ${guild.name} (ID: ${guild.id}`);
+        logger.warn(`Removed from guild: ${guild.name} (ID: ${guild.id})`); // Fixed missing closing parenthesis
 
         // Additional context
         logger.info(`Guild owner: ${guild.ownerId}`);
