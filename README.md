@@ -1,8 +1,5 @@
 # 🤖 Milena - Your Ultimate Discord Companion
 
-[![GitHub](https://img.shields.io/github/stars/iiRedPanda/Milena?style=social)](https://github.com/iiRedPanda/Milena)
-[![Discord](https://img.shields.io/discord/123456789012345678?color=7289da&label=Discord&logo=discord)](https://discord.gg/your-invite)
-
 Welcome to Milena, your personal Discord assistant packed with exciting games, AI features, and useful utilities! 🎮 ✨
 
 ## ✨ Features Overview
