@@ -16,7 +16,6 @@ Welcome to Milena, your personal Discord assistant packed with exciting games, A
 - 📚 **Story Generator** - Create unique tales across different genres
 - 🎭 **Personality System** - Customize how Milena interacts
 - 📝 **Text Summarizer** - Quick summaries of long texts
-- 🌦️ **Weather Updates** - Real-time weather information
 
 ### 🛠️ Utility Tools
 - 📚 **Help System** - Detailed command documentation
