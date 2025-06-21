@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 // Validate required environment variables
 const requiredEnvVars = [
-    'DISCORD_BOT_TOKEN',
+    'DISCORD_TOKEN',
     'GOOGLE_API_KEY'
 ];
 
@@ -23,8 +23,8 @@ for (const envVar of requiredEnvVars) {
 
 // Bot Configuration
 export const botConfig = {
-    token: process.env.DISCORD_BOT_TOKEN,
-    clientId: process.env.CLIENT_ID,
+    token: process.env.DISCORD_TOKEN,
+    clientId: process.env.DISCORD_CLIENT_ID,
     defaultPrefix: '!',
     owners: process.env.BOT_OWNERS?.split(',') || [],
     supportServer: process.env.SUPPORT_SERVER,
