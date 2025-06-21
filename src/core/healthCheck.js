@@ -1,9 +1,9 @@
-import logger from './src/services/logger.js';
-import analytics from './src/services/analytics.js';
-import resourceManager from './src/services/resourceManager.js';
+import logger from '../services/logger.js';
+import analytics from '../services/analytics.js';
+import resourceManager from '../services/resourceManager.js';
 
-const http = require('http');
-const os = require('os');
+import http from 'http';
+import os from 'os';
 
 // Health thresholds
 const THRESHOLDS = {
