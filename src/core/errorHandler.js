@@ -5,7 +5,7 @@ import { MESSAGES } from '../constants/messages.js';
 /**
  * Custom error types
  */
-export class ValidationError extends Error {
+class ValidationError extends Error {
     constructor(message, context = {}) {
         super(message);
         this.name = 'ValidationError';
@@ -13,7 +13,7 @@ export class ValidationError extends Error {
     }
 }
 
-export class PermissionError extends Error {
+class PermissionError extends Error {
     constructor(message, context = {}) {
         super(message);
         this.name = 'PermissionError';
@@ -21,7 +21,7 @@ export class PermissionError extends Error {
     }
 }
 
-export class RateLimitError extends Error {
+class RateLimitError extends Error {
     constructor(message, context = {}) {
         super(message);
         this.name = 'RateLimitError';
@@ -29,7 +29,7 @@ export class RateLimitError extends Error {
     }
 }
 
-export class TimeoutError extends Error {
+class TimeoutError extends Error {
     constructor(message, context = {}) {
         super(message);
         this.name = 'TimeoutError';
