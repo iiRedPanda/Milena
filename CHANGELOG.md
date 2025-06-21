@@ -20,10 +20,9 @@ All notable changes to this project will be documented in this file.
   - `/quote`: Added caching and fallback options. Introduced a subcommand to fetch quotes by category (e.g., inspirational, funny).
   - `/poll`: Added a subcommand to close the poll manually and display the results. Introduced a feature to allow anonymous voting.
   - `/remind`: Added a subcommand to list all active reminders. Introduced a feature to cancel a reminder before it is executed.
-  - `/weather`: Added a subcommand to fetch a 7-day weather forecast. Introduced a feature to save favorite locations for quick access.
 
 - **Performance Improvements**:
-  - Implemented caching for frequently accessed data (e.g., jokes, quotes, weather) to reduce latency.
+  - Implemented caching for frequently accessed data (e.g., jokes, quotes) to reduce latency.
   - Optimized file I/O by batching memory saves to reduce the frequency of file writes.
   - Used asynchronous execution (`Promise.all`) to execute multiple API calls in parallel.
   - Preloaded commands and events during startup to reduce runtime overhead.
