@@ -26,7 +26,9 @@ export const MESSAGES = {
         INVALID_MOVE: 'Invalid move.',
         NOT_YOUR_TURN: 'It is not your turn.',
         TURN_TIMEOUT: 'Your turn has timed out.',
-        GAME_TIMEOUT: 'Game has timed out due to inactivity.'
+        GAME_TIMEOUT: 'Game has timed out due to inactivity.',
+        NO_MEMORY: 'There is no stored memory for this channel.',
+        INVALID_DURATION: 'Duration must be greater than zero.'
     },
     SUCCESS: {
         COMMAND_EXECUTED: 'Command executed successfully.',
