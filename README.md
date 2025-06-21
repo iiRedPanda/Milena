@@ -173,7 +173,7 @@ Welcome to Milena, your personal Discord assistant packed with exciting games, A
 1. Clone the repository
 2. Install dependencies: \`npm install\`
 3. Configure \`.env\` file
-4. Start the bot: \`node index.js\`
+4. Start the bot: \`node src/index.js\` (or `npm start`)
 
 ### 📦 Dependencies
 - discord.js
