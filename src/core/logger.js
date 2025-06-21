@@ -42,27 +42,19 @@ export const logger = winston.createLogger({
     format: logFormat,
     transports: [
         new winston.transports.File({
-            filename: join(ERROR_LOG_DIR, 'error.log'),  
+            filename: join(ERROR_LOG_DIR, 'error.log'),
             level: 'error',
             maxsize: CONFIG.LOGGING.MAX_FILE_SIZE,
             maxFiles: CONFIG.LOGGING.MAX_FILES,
             tailable: true,
-            zippedArchive: true,
-            rotationFormat: (info) => {
-                const date = new Date(info.timestamp);
-                return `error-${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}.log`;
-            }
+            zippedArchive: true
         }),
         new winston.transports.File({
-            filename: join(COMBINED_LOG_DIR, 'combined.log'),  
+            filename: join(COMBINED_LOG_DIR, 'combined.log'),
             maxsize: CONFIG.LOGGING.MAX_FILE_SIZE,
             maxFiles: CONFIG.LOGGING.MAX_FILES,
             tailable: true,
-            zippedArchive: true,
-            rotationFormat: (info) => {
-                const date = new Date(info.timestamp);
-                return `combined-${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}.log`;
-            }
+            zippedArchive: true
         })
     ]
 });
@@ -76,14 +68,6 @@ if (process.env.NODE_ENV !== 'production') {
     }));
 }
 
-// Add custom log levels
-logger.addLevel('audit', 25, {
-    color: 'magenta'
-});
-
-logger.addLevel('trace', 10, {
-    color: 'cyan'
-});
 
 // Log file compression
 logger.compressLog = async (filePath) => {

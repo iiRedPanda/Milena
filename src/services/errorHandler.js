@@ -1,5 +1,5 @@
 import logger from './logger.js';
-import performance from './performance.js';
+import performanceMonitor from './performanceMonitor.js';
 import { CircularBuffer } from '../utils/circularBuffer.js';
 
 class ErrorHandler {
@@ -161,7 +161,7 @@ class ErrorHandler {
         this.updateCircuitBreaker(errorInfo.type);
 
         // Track in performance monitor
-        performance.trackError(errorInfo.type.toLowerCase());
+        performanceMonitor.trackError(errorInfo.type.toLowerCase());
     }
 
     /**

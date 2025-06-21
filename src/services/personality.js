@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { log } from './logger.js';
+import { log } from '../core/botLogger.js';
 
 class PersonalitySystem {
     constructor() {

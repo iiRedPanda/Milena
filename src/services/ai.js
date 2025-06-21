@@ -1,7 +1,7 @@
 import axios from 'axios';
 import fs from 'fs/promises';
 import path from 'path';
-import { log } from '../botLogger.js';
+import { log } from '../core/botLogger.js';
 import personality from './personality.js';
 import resourceManager from './resourceManager.js';
 
@@ -42,7 +42,7 @@ class GeminiClient {
 
     async initialize() {
         try {
-            const configPath = path.resolve('config.json');
+            const configPath = path.resolve('src/config/config.json');
             const configData = await fs.readFile(configPath, 'utf8');
             this.config = JSON.parse(configData);
             

@@ -1,5 +1,5 @@
 import { EmbedBuilder, ChannelType } from 'discord.js';
-import { log } from '../botLogger.js';
+import { log } from './core/botLogger.js';
 import fs from 'fs/promises';
 import path from 'path';
 

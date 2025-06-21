@@ -1,6 +1,6 @@
 import { SlashCommandBuilder, PermissionFlagsBits } from 'discord.js';
-import audit from '../audit.js';
-import { log } from '../../botLogger.js';
+import audit from '../../audit.js';
+import { log } from '../../core/botLogger.js';
 
 export default {
     data: new SlashCommandBuilder()

@@ -1,3 +1,10 @@
+import logger from './logger.js';
+import cache from './cache.js';
+import performanceMonitor from './performanceMonitor.js';
+import errorHandler from './errorHandler.js';
+import { analytics } from './analytics.js';
+import resourceManager from './resourceManager.js';
+
 class Container {
     constructor() {
         this.services = new Map();
@@ -154,40 +161,13 @@ class Container {
      * Register common service types
      */
     registerCommonServices() {
-        // Register logger
-        this.register('logger', require('./logger').default, {
-            singleton: true
-        });
-
-        // Register cache
-        this.register('cache', require('./cache').default, {
-            singleton: true,
-            dependencies: ['logger']
-        });
-
-        // Register performance monitor
-        this.register('performance', require('./performance').default, {
-            singleton: true,
-            dependencies: ['logger']
-        });
-
-        // Register error handler
-        this.register('errorHandler', require('./errorHandler').default, {
-            singleton: true,
-            dependencies: ['logger', 'performance']
-        });
-
-        // Register analytics
-        this.register('analytics', require('./analytics').default, {
-            singleton: true,
-            dependencies: ['logger', 'cache']
-        });
-
-        // Register resource manager
-        this.register('resourceManager', require('./resourceManager').default, {
-            singleton: true,
-            dependencies: ['logger', 'analytics']
-        });
+        // Register common services using factories since they are instantiated modules
+        this.registerFactory('logger', () => logger);
+        this.registerFactory('cache', () => cache);
+        this.registerFactory('performance', () => performanceMonitor);
+        this.registerFactory('errorHandler', () => errorHandler);
+        this.registerFactory('analytics', () => analytics);
+        this.registerFactory('resourceManager', () => resourceManager);
     }
 }
 

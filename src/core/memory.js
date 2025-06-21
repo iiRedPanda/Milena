@@ -1,7 +1,7 @@
-const fs = require('fs').promises; // Use async file operations
-const { Mutex } = require('async-mutex');
-import { logInfo, logWarn, logError, logDebug } from './src/logger.js'; // Use ES module import for logger
-import { globalMemoryPruneInterval } from './src/utils.js'; // Import global memory pruning interval
+import fs from 'fs/promises';
+import { Mutex } from 'async-mutex';
+import { logInfo, logWarn, logError, logDebug } from './logger.js';
+import { globalMemoryPruneInterval } from '../utils/utils.js';
 
 /**
  * A class to manage hybrid memory for storing channel-specific data.

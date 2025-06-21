@@ -1,5 +1,5 @@
-import { log } from './logger.js';
-import analytics from './analytics.js';
+import { log } from '../core/botLogger.js';
+import { analytics } from './analytics.js';
 
 class AdaptiveResponse {
     constructor() {

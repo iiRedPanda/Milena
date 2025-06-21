@@ -19,7 +19,7 @@ async function initializeLogFolders() {
 }
 
 // Initialize folders
-initializeLogFolders();
+await initializeLogFolders();
 
 // Cache open file handles
 const fileHandles = new Map();

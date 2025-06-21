@@ -209,4 +209,4 @@ class ErrorHandler {
 }
 
 const errorHandler = new ErrorHandler();
-export { errorHandler, ValidationError, PermissionError, RateLimitError, TimeoutError };
+export { errorHandler };

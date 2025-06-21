@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits } from 'discord.js';
-import { log } from '../botLogger.js';
+import { log } from './botLogger.js';
 import { loadCommands, reloadCommand } from './commands/index.js';
 import { cleanup as cleanupMemory } from './memoryFunction.js';
 import { cleanup as cleanupAI } from './ai.js';

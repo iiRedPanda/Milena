@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import logger from '../services/logger.js';
-import analytics from '../services/analytics.js';
+import { analytics } from '../services/analytics.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
