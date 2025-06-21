@@ -1,6 +1,6 @@
-import { memory, saveMemory } from '../utils.js';
-import { fetchGeminiResponse } from '../ai.js'; // Import the function to fetch responses from the Gemini API
-import logger from '../logger.js';
+import { memory, saveMemory } from '../utils/utils.js';
+import { fetchGeminiResponse } from '../services/ai.js';
+import logger from '../services/logger.js';
 
 export default {
     name: 'messageCreate',

@@ -1,4 +1,4 @@
-import { logError } from '../logger.js'; // Use ES module import for logger
+import { logError } from '../core/botLogger.js';
 
 export default {
     name: 'interactionCreate',

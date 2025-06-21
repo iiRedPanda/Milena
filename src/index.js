@@ -2,14 +2,13 @@ import { Client, GatewayIntentBits, Partials } from 'discord.js';
 import container from './services/container.js';
 import config from './services/config.js';
 import logger from './services/logger.js';
-import analytics from './services/analytics.js';
-import { handleMessage } from './core/messageHandler.js';
+import { analytics } from './services/analytics.js';
+import messageHandler from './core/messageHandler.js';
 import { loadEvents } from './events/eventLoader.js';
 import { loadCommands } from './commands/commandLoader.js';
 
 // Initialize services
 await config.initialize();
-await analytics.initialize();
 
 // Create client instance
 const client = new Client({
@@ -36,7 +35,7 @@ await loadCommands(client);
 await loadEvents(client);
 
 // Handle messages
-client.on('messageCreate', handleMessage);
+client.on('messageCreate', message => messageHandler.handleMessage(message));
 
 // Handle errors
 client.on('error', error => {

@@ -1,5 +1,5 @@
 import { fetchGeminiResponse } from '../../services/ai.js';
-import { log } from '../../botLogger.js';
+import { log } from '../../core/botLogger.js';
 
 class DungeonStats {
     constructor() {

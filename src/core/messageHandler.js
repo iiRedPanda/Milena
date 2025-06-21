@@ -1,9 +1,9 @@
 import { log } from './botLogger.js';
 import { processMessage } from './memoryFunction.js';
-import { fetchGeminiResponse } from './src/ai.js';
-import adaptive from './src/adaptive.js';
-import audit from './audit.js'; // Import audit module
-import analytics from './analytics.js'; // Import analytics module
+import { fetchGeminiResponse } from '../services/ai.js';
+import adaptive from '../services/adaptive.js';
+import audit from '../audit.js'; // Import audit module
+import { analytics } from '../services/analytics.js'; // Import analytics module
 
 const ErrorResponses = {
     API_ERROR: [
@@ -310,18 +310,3 @@ class MessageHandler {
 
 const messageHandler = new MessageHandler();
 export default messageHandler;
-
-bot.on('message', async (message) => {
-    try {
-        // Ensure the bot does not process its own messages or messages without content
-        if (message.author.bot || !message.content) return;
-
-        await messageHandler.queue.add(message);
-    } catch (error) {
-        log('error', 'Message handling failed', {
-            error: error.message,
-            stack: error.stack,
-            messageId: message.id
-        });
-    }
-});

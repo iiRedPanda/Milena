@@ -2,7 +2,7 @@ import { Collection } from 'discord.js';
 import { log } from '../services/logger.js';
 import fs from 'fs/promises';
 import path from 'path';
-import analytics from '../services/analytics.js';
+import { analytics } from '../services/analytics.js';
 import audit from '../services/audit.js'; // Import the audit system
 
 // Command categories for better organization

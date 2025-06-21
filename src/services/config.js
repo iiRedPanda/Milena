@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import fsSync from 'fs';
 import path from 'path';
 import logger from './logger.js';
 import { fileURLToPath } from 'url';
@@ -251,7 +252,7 @@ class ConfigManager {
      * Start watching configuration files for changes
      */
     startFileWatchers() {
-        const watcher = fs.watch(this.configPath, async (eventType, filename) => {
+        const watcher = fsSync.watch(this.configPath, async (eventType, filename) => {
             if (!filename || !filename.endsWith('.json')) return;
 
             const name = path.basename(filename, '.json');

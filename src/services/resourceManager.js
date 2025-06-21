@@ -1,6 +1,6 @@
 import logger from './logger.js';
 import { RateLimiter } from './rateLimiter.js';
-import analytics from './analytics.js';
+import { analytics } from './analytics.js';
 
 class ResourcePool {
     constructor(name, maxConcurrent, cooldownMs) {
