@@ -10,7 +10,7 @@ export class HangmanGame extends GameBase {
                 FRUITS: ['banana', 'strawberry', 'pineapple', 'blueberry', 'watermelon', 'orange', 'mango'],
                 COUNTRIES: ['france', 'japan', 'brazil', 'australia', 'canada', 'egypt', 'india'],
                 SPORTS: ['football', 'tennis', 'basketball', 'volleyball', 'swimming', 'cricket', 'hockey'],
-                FOOD: ['pizza', 'hamburger', 'spaghetti', 'chocolate', 'sandwich', 'pancake', 'icecream'],
+                FOOD: ['pizza', 'hamburger', 'spaghetti', 'chocolate', 'sandwich', 'pancake', 'ice cream'],
                 JOBS: ['teacher', 'doctor', 'engineer', 'artist', 'musician', 'chef', 'pilot']
             }
         });
